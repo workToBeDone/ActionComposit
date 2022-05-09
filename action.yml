@@ -1,0 +1,16 @@
+
+name: "Publish to Docker"
+description: "Build a container image and Pushes it to Docker registry"
+
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'  
+
+runs:
+  using: "composite"
+  steps:
+  - name: Print
+    run: |
+      echo "In Action"
