@@ -12,5 +12,5 @@ runs:
   using: "composite"
   steps:
   - name: Print
-    run: |
-      echo "In Action"
+    run: echo "In Action"
+    shell: bash
