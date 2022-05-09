@@ -14,3 +14,18 @@ runs:
   - name: Print
     run: echo "In Action"
     shell: bash
+    
+  - name: CF Add Repo
+    run: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+        
+  - name: CF Add Repo Pt 2
+    run: echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+
+  - name: CF Update Repo
+    run: sudo apt-get update
+
+  - name: CF Install
+    run: sudo apt-get install cf-cli
+    
+  - name: Check CF CLI version
+    run: cf --version
